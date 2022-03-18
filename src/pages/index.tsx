@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql, PageProps } from "gatsby";
-// Utilizar el Link de gatsby-plugin-react-i18next
-// nos permite que las urls tengan el idioma que el usuario eligió
-// sin la necesidad de tener que especificarlo
+// Use the Link from gatsby-plugin-react-i18next
+// allows us to set the urls to the language chosen by the user
+// without the need to specify it on de url
 import { Link, useTranslation } from "gatsby-plugin-react-i18next";
 // Components
 import Layout from "components/Layout";

@@ -15,7 +15,7 @@ const ArticlePage: React.FC<PageProps<ArticlePageProps>> = ({ data }) => {
   const article = data.article;
   const { title, date } = article.frontmatter;
   const { language } = article.fields;
-  // Cambio la forma en la que se muestra la fecha según el idioma elegido
+  // Change the way the date is displayed according to the chosen language
   const formattedDate = new Date(date).toLocaleDateString(language, {
     year: "numeric",
     month: "long",

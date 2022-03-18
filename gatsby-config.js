@@ -19,13 +19,13 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/locales`,
-        name: `locale`, // Este nombre es importante porque lo usaremos más adelante.
+        name: `locale`, // This name is important because we will use it later.
       },
     },
     {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
-        localeJsonSourceName: `locale`, // Debe ser el mismo nombre que usamos en la configuración anterior.
+        localeJsonSourceName: `locale`, // It must be the same name we used in the previous configuration.
         defaultLanguage: __DEFAULT_LANGUAGE__,
         languages: __LANGUAGES__,
         redirect: true,
@@ -40,7 +40,7 @@ module.exports = {
         },
         pages: [
           {
-            matchPath: "/:lang/blog/:slug*", // La dirección de nuestro blog
+            matchPath: "/:lang/blog/:slug*", // Our blog address
             getLanguageFromPath: true,
           },
         ],

@@ -1,46 +1,46 @@
-// Path sirve para trabajar con las rutas de nuestros archivos.
+// Path is used to work with the paths of our files.
 const path = require("path");
-// createFilePath nos va a ayudar a crear la url de nuestro artículo.
+// createFilePath will help us to create the url of our article.
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  // createNodeField es la función que va a crear los nuevos nodos.
+  // createNodeField is the function that will create the new nodes.
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    // createFilePath va a devolver un string de esta manera:
+    // createFilePath will return a string like this:
     // /article-name/index.lang/
-    // El split(".") lo utilizo para separar el idioma del resto.
+    // I use the split(".") to separate the language from the rest.
     const [slug, language] = createFilePath({ node, getNode }).split(".");
-    // Nos va a quedar:
+    // Now we have:
     // slug = /article-name/index
     // language = lang/
 
-    // Creamos el nodo para el idioma.
+    // Now we create the node for the language.
     createNodeField({
       node,
-      // Language es el nombre del campo que vamos a recoger al hacer la query
+      // language will be the name of the field that we are going to pick up when querying
       name: "language",
-      // Language tiene el valor de "lang/"
-      // Este split parte el string en el "/" del final, devolviendonos solo "lang"
+      // language has the value of "lang/"
+      // this split function splits the string at the "/" at the end, returning only "lang".
       value: language.split("/")[0],
     });
 
-    // Creamos el nodo para el slug.
+    // We create the node for the slug.
     createNodeField({
       node,
-      // Slug es el nombre del campo que vamos a recoger al hacer la query
+      // Slug will be the name of the field that we are going to pick up when querying
       name: "slug",
       // Slug tiene el valor de "/article-name/index"
-      // Este split parte el string en cada "/"
-      // Recogiendo el segundo valor del array nos devuelve solo "article-name"
+      // This split function splits the string into each "/".
+      // We pick up only the second value of the returned array, wich is "article-name"
       value: slug.split("/")[1],
     });
   }
 };
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  // Con createPage podemos crear cada página individualmente
+  // With createPage we can create each page individually
   const { createPage } = actions;
   // Recogemos con graphql todos los archivos Markdown que hemos creado
   const result = await graphql(`
@@ -57,7 +57,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `);
 
-  // Si ocurre algún error lo reportamos y detenemos la ejecución
+  // We collect with graphql all the Markdown files that we have created.
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading the page content`,
@@ -66,24 +66,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return;
   }
 
-  // articles va a ser un arreglo de artículos
+  // articles will be an array of articles
   const articles = result.data.articles.nodes;
-  // El template de nuestros artículos.
+  // The template of our articles.
   const articleTemplate = path.resolve(`./src/templates/article.tsx`);
 
-  // Recorremos el arreglo de artículos
+  // We go through the articles array
   articles.forEach((article) => {
-    // Del artículo solo necesitamos el id, el slug y el lenguaje
+    // From the article, we only need the id, the slug and the language.
     const { id } = article;
     const { slug, language } = article.fields;
-    // Creamos la página para cada uno de ellos
+    // We create the page for each of them
     createPage({
-      // path va a ser la URL del artículo
+      // path will be the URL of the article
       path: `/${language}/blog/${slug}`,
-      // component es el template que vamos a usar
+      // component is the template we are going to use
       component: articleTemplate,
-      // En context están los parámetros que podemos pasar a nuestro template
-      // Nos van a servir para hacer las queries de cada artículo
+      // In context there are the parameters that we can pass to our template
+      // They will be used to make the queries for each article.
       context: {
         id,
         slug,

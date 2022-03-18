@@ -4,15 +4,15 @@ import {
   useI18next,
   useTranslation,
 } from "gatsby-plugin-react-i18next";
-// Layout.module.css es un archivo de estilos muy básico que hice
+// Layout.module.css is a very basic style file that I made
 import * as styles from "./Layout.module.css";
 
 const Layout: React.FC = ({ children }) => {
-  // language es el lenguaje activo en la página
-  // languages es un arreglo con todos los lenguajes disponibles
-  // changeLanguage es la función que nos permite cambiar de lenguaje
+  // language is the active language on the page
+  // languages is an array with all available languages
+  // changeLanguage is the function that allows us to change languages
   const { language, languages, changeLanguage } = useI18next();
-  // useTranslation() nos permite acceder a nuestras traducciones
+  // useTranslation() allows us to access our translations
   const { t } = useTranslation();
   return (
     <div>

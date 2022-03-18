@@ -1,9 +1,9 @@
 export interface IArticle {
-  id: string; // El id creado por Gatsby
-  html: string; // El contenido creado por gatsby-source-filesystem
+  id: string; // The id created by Gatsby
+  html: string; // Article content created by gatsby-source-filesystem
   frontmatter: {
     title: string;     //
-    date: string;      // Nuestras variables
+    date: string;      // Our variables
     content: string;   //
   };
   fields: {
