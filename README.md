@@ -1,8 +1,8 @@
 # Multilingual Blog
 
-A Gatsby markdown blog with support for multiple languages.
+Un blog Markdown hecho en Gatsby con soporte para múltiples idiomas.
 
-## Made with:
+## Hecho con:
 
 - [Gatsby](https://www.gatsbyjs.org/)
 - [gatsby-plugin-react-i18next](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-i18next/)
