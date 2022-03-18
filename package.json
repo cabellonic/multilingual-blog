@@ -5,7 +5,11 @@
   "description": "multilingual-blog",
   "author": "Nicolás Cabello",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "multilingual",
+    "blog",
+    "i18next",
+    "typescript"
   ],
   "scripts": {
     "develop": "gatsby develop",
@@ -17,10 +21,13 @@
   "dependencies": {
     "gatsby": "^4.10.0",
     "gatsby-plugin-react-helmet": "^5.10.0",
+    "gatsby-plugin-react-i18next": "^1.2.2",
     "gatsby-source-filesystem": "^4.10.0",
     "gatsby-transformer-remark": "^5.10.0",
+    "i18next": "^21.6.14",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-i18next": "^11.16.1"
   }
 }

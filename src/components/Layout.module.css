@@ -1,0 +1,57 @@
+.header,
+.footer {
+  background-color: slateblue;
+  color: white;
+  font-weight: 900;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: xx-large;
+  font-family: sans-serif;
+  border-radius: 1rem;
+}
+
+.main {
+  text-align: center;
+  font-family: sans-serif;
+  margin: 2rem 0;
+}
+
+.main a:first-of-type h2 {
+  border-top: 1px solid dodgerblue;
+}
+.main a h2 {
+  border-bottom: 1px solid dodgerblue;
+  margin: 0;
+  padding: 1rem;
+}
+
+.main a h2:hover {
+  background-color: aliceblue;
+}
+
+.main a {
+  text-decoration: none;
+  color: dodgerblue;
+}
+.main a:hover {
+  color: orangered;
+}
+
+.footer {
+  font-family: sans-serif;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  font-size: large;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.footer a.active,
+.footer a:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
