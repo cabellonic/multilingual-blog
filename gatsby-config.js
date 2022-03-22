@@ -1,4 +1,4 @@
-const { __DEFAULT_LANGUAGE__, __LANGUAGES__ } = require("./languajes");
+const { __DEFAULT_LANGUAGE__, __LANGUAGES__ } = require("./languages");
 
 module.exports = {
   siteMetadata: {
