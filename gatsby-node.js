@@ -42,7 +42,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // With createPage we can create each page individually
   const { createPage } = actions;
-  // Recogemos con graphql todos los archivos Markdown que hemos creado
+  // We collect with graphql all the Markdown files we have created
   const result = await graphql(`
     {
       articles: allMarkdownRemark(limit: 1000) {
@@ -57,7 +57,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `);
 
-  // We collect with graphql all the Markdown files that we have created.
+  // If an error occurs, we report it and stop the execution.
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading the page content`,
@@ -68,12 +68,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // articles will be an array of articles
   const articles = result.data.articles.nodes;
-  // The template of our articles.
+  // The template of our articles
   const articleTemplate = path.resolve(`./src/templates/article.tsx`);
 
   // We go through the articles array
   articles.forEach((article) => {
-    // From the article, we only need the id, the slug and the language.
+    // From the article, we only need the id, the slug and the language
     const { id } = article;
     const { slug, language } = article.fields;
     // We create the page for each of them
